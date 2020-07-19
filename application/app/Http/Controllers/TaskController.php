@@ -12,7 +12,7 @@ class TaskController extends Controller
     {
         $folders = Folder::all(); // すべてのフォルダを取得する
         $current_folder = Folder::find($id); // 選ばれたフォルダを取得する
-        $tasks = Task::where('folder_id', $current_folder->id)->get(); // 選ばれたフォルダに紐づくタスクを取得する
+        $tasks = $current_folder->tasks()->get(); // 選ばれたフォルダに紐づくタスクを取得する
 
         return view('tasks/index', [
             'folders' => $folders,
