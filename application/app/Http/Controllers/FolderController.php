@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateFolder;
 use App\Folder;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class FolderController extends Controller
         return view('folders/create');
     }
 
-    public function create(Request $request)// 引数にインポートしたRequestクラスを受け入れる
+    public function create(CreateFolder $request)// 引数にインポートしたRequestクラスを受け入れる
     {
         $folder = new Folder();// フォルダモデルのインスタンスを作成する
         $folder->title = $request->title;// タイトルに入力値を代入する
